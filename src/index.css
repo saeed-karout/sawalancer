@@ -1,145 +1,128 @@
-@import url("https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --glow: #A4A0E4;
-  --violet-dark: #410F80;
-  --violet-rich: #4319B9;
-  --navy-bg: #0A0828;
-  --sky: #368FDF;
-  --blue-mid: #1D45B3;
-  --violet-navy: #20155C;
-  --violet-mid: #7055CA;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden;
-  color: #fff;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(112, 85, 202, 0.3), transparent 32%),
-    radial-gradient(circle at 87% 26%, rgba(54, 143, 223, 0.28), transparent 32%),
-    radial-gradient(circle at 56% 78%, rgba(29, 69, 179, 0.23), transparent 28%),
-    var(--navy-bg);
-  font-family: "Changa", sans-serif;
-}
-
-a,
-button {
-  -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background: rgba(164, 160, 228, 0.35);
-}
-
-.font-space {
-  font-family: "Space Grotesk", sans-serif;
-}
-
-.hero-gradient {
-  background: linear-gradient(100deg, var(--glow) 5%, var(--violet-mid) 40%, var(--sky) 95%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.progress-line {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  height: 3px;
-  width: 100%;
-  transform-origin: left;
-  background: linear-gradient(to right, var(--sky), var(--glow), var(--violet-rich));
-}
-
-.space-grid {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  background-image:
-    linear-gradient(rgba(164, 160, 228, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(164, 160, 228, 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(circle at 50% 50%, black 18%, transparent 82%);
-  opacity: 0.25;
-}
-
-.noise-overlay {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.17) 1px, transparent 0);
-  background-size: 30px 30px;
-  opacity: 0.13;
-}
-
-.orb {
-  position: fixed;
-  z-index: -1;
-  border-radius: 9999px;
-  filter: blur(70px);
-  animation: drift 20s ease-in-out infinite;
-}
-
-.orb-1 {
-  top: 14%;
-  right: -60px;
-  height: 230px;
-  width: 230px;
-  background: rgba(67, 25, 185, 0.42);
-}
-
-.orb-2 {
-  bottom: 8%;
-  left: -60px;
-  height: 270px;
-  width: 270px;
-  background: rgba(54, 143, 223, 0.28);
-  animation-delay: 2.5s;
-}
-
-.section-glow {
-  position: relative;
-  overflow: hidden;
-}
-
-.section-glow::after {
-  content: "";
-  position: absolute;
-  inset: -30% 35% auto -10%;
-  height: 170px;
-  border-radius: 9999px;
-  background: linear-gradient(120deg, rgba(164, 160, 228, 0.25), rgba(54, 143, 223, 0.04));
-  filter: blur(28px);
-  pointer-events: none;
-}
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0);
+/* تخصيص الثيم لـ Tailwind v4 */
+@theme {
+  --color-cosmic-glow: #A4A0E4;
+  --color-cosmic-dark: #410F80;
+  --color-cosmic-saturated: #4319B9;
+  --color-cosmic-background: #0A0828;
+  --color-cosmic-sky: #368FDF;
+  --color-cosmic-mid: #1D45B3;
+  --color-cosmic-navy: #20155C;
+  --color-cosmic-medium: #7055CA;
+  
+  --font-space: 'Space Grotesk', sans-serif;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-shimmer: shimmer 3s infinite;
+  --animate-meteor: meteor 5s linear infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
-  50% {
-    transform: translate(18px, -18px);
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; filter: blur(40px); }
+    50% { opacity: 1; filter: blur(60px); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  @keyframes meteor {
+    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
   }
 }
 
-@media (max-width: 768px) {
-  .space-grid {
-    background-size: 40px 40px;
+@layer base {
+  * {
+    border-color: color-mix(in srgb, var(--color-cosmic-navy) 30%, transparent);
+  }
+  
+  body {
+    background-color: var(--color-cosmic-background);
+    font-family: var(--font-space);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
-  .orb-1,
-  .orb-2 {
-    height: 180px;
-    width: 180px;
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-cosmic-saturated) 30%, transparent);
+    color: var(--color-cosmic-glow);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-cosmic-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--color-cosmic-saturated), var(--color-cosmic-dark));
+    border-radius: 9999px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, var(--color-cosmic-glow), var(--color-cosmic-sky), var(--color-cosmic-medium));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    background-color: color-mix(in srgb, white 5%, transparent);
+    border: 1px solid color-mix(in srgb, white 10%, transparent);
+  }
+
+  .cosmic-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, color-mix(in srgb, var(--color-cosmic-navy) 80%, transparent), color-mix(in srgb, var(--color-cosmic-background) 90%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-cosmic-saturated) 20%, transparent);
+    backdrop-filter: blur(8px);
+  }
+
+  .glow {
+    position: relative;
+  }
+
+  .glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-cosmic-saturated), var(--color-cosmic-sky));
+    opacity: 0.2;
+    filter: blur(40px);
+    z-index: -10;
+  }
+
+  .meteor-effect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 0 0 2px rgba(255, 255, 255, 0.03), 0 0 20px #A4A0E4;
+  }
+  
+  .bg-hero-pattern {
+    background-image: radial-gradient(circle at 30% 40%, color-mix(in srgb, var(--color-cosmic-saturated) 30%, transparent) 0%, transparent 50%);
   }
 }

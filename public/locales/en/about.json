@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "badge": "About Us",
+    "title": "We Are Sawalancer",
+    "description": "A cosmic creative agency dedicated to transforming brands through innovative design, strategic thinking, and cutting-edge technology."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To launch brands into new dimensions through creative excellence and strategic innovation."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "To be the leading cosmic creative force that shapes the future of digital experiences."
+  },
+  "values": {
+    "title": "Our Values",
+    "description": "Creativity, Innovation, Excellence, and Client Success drive everything we do.",
+    "items": [
+      {
+        "title": "Creativity First",
+        "description": "We push boundaries and think outside the galaxy."
+      },
+      {
+        "title": "Innovation Driven",
+        "description": "Embracing cutting-edge technology and methodologies."
+      },
+      {
+        "title": "Excellence Always",
+        "description": "Delivering nothing less than stellar results."
+      },
+      {
+        "title": "Client Centric",
+        "description": "Your success is our cosmic mission."
+      }
+    ]
+  },
+  "team": {
+    "subtitle": "Our Team",
+    "title": "Meet the Cosmic Crew",
+    "description": "A team of passionate designers, developers, and strategists ready to launch your brand to the stars.",
+    "members": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Creative Director",
+        "bio": "With over 15 years of experience in brand strategy and design."
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Tech Lead",
+        "bio": "Full-stack developer specializing in scalable web applications."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Marketing Strategist",
+        "bio": "Data-driven marketer with a passion for growth hacking."
+      },
+      {
+        "name": "David Kim",
+        "role": "Lead Designer",
+        "bio": "Award-winning designer with an eye for cosmic aesthetics."
+      }
+    ]
+  },
+  "stats": {
+    "experience": "Years Experience",
+    "team": "Team Members",
+    "offices": "Global Offices",
+    "clients": "Clients Worldwide"
+  },
+  "journey": {
+    "title": "Our Cosmic Journey",
+    "description": "From a small creative studio to a leading cosmic agency, our journey has been nothing short of stellar.",
+    "milestones": [
+      {
+        "year": "2016",
+        "title": "The Beginning",
+        "description": "Sawalancer was founded with a vision to bring cosmic creativity to brands."
+      },
+      {
+        "year": "2018",
+        "title": "First Major Award",
+        "description": "Won our first international design award."
+      },
+      {
+        "year": "2020",
+        "title": "Global Expansion",
+        "description": "Opened offices in three new countries."
+      },
+      {
+        "year": "2024",
+        "title": "Industry Leader",
+        "description": "Recognized as a top creative agency worldwide."
+      }
+    ]
+  }
+}

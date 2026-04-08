@@ -1,0 +1,81 @@
+{
+  "siteName": "سوا لانسر",
+  "tagline": "وكالة إبداعية كونية",
+  "direction": "ltr",
+  "navigation": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "portfolio": "الأعمال",
+    "about": "عن الوكالة",
+    "blog": "المدونة",
+    "contact": "تواصل",
+    "pricing": "الأسعار"
+  },
+  "buttons": {
+    "getStarted": "ابدأ الآن",
+    "learnMore": "اعرف المزيد",
+    "contactUs": "تواصل معنا",
+    "viewAll": "عرض الكل",
+    "submit": "إرسال",
+    "send": "إرسال الرسالة",
+    "download": "تحميل",
+    "launch": "إطلاق المشروع",
+    "readMore": "اقرأ المزيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "menu": "القائمة",
+    "search": "بحث"
+  },
+  "footer": {
+    "description": "نرتقي بالعلامات التجارية بإبداع كوني وحلول رقمية نجمية. شريكك في الإبحار في الكون الرقمي.",
+    "rights": "جميع الحقوق محفوظة",
+    "crafted": "صُنع بطاقة كونية",
+    "subscribe": "اشترك في نشرتنا البريدية",
+    "subscribePlaceholder": "أدخل بريدك الإلكتروني",
+    "followUs": "تابع رحلتنا الكونية",
+    "quickLinks": "روابط سريعة",
+    "services": "الخدمات",
+    "company": "الشركة",
+    "contact": "اتصل بنا",
+    "legal": "قانوني",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة",
+    "cookies": "سياسة الكوكيز",
+    "sitemap": "خريطة الموقع",
+    "address": "المقر الكوني، الفضاء الرقمي",
+    "phone": "+963 957 608 833",
+    "email": "info@sawalancer.com"
+  },
+  "language": {
+    "en": "English",
+    "ar": "العربية",
+    "switchTo": "تغيير إلى"
+  },
+  "notFound": {
+    "title": "ضائع في الفضاء",
+    "message": "الصفحة التي تبحث عنها انجرفت إلى ثقب أسود.",
+    "backHome": "العودة إلى الأرض",
+    "maybeLooking": "ربما تبحث عن:"
+  },
+  "social": {
+    "whatsapp": "واتساب",
+    "instagram": "انستغرام",
+    "linkedin": "لينكد إن",
+    "twitter": "إكس (تويتر)",
+    "facebook": "فيسبوك",
+    "youtube": "يوتيوب"
+  },
+  "contact": {
+    "quickResponse": "رد سريع",
+    "emailUs": "راسلنا",
+    "callNow": "اتصل الآن",
+    "ourLocation": "موقعنا",
+    "businessHours": "ساعات العمل",
+    "mondayFriday": "الإثنين - الجمعة",
+    "saturday": "السبت",
+    "sunday": "الأحد",
+    "closed": "مغلق"
+  }
+}

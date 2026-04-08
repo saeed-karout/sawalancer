@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "badge": "Simple Pricing",
+    "title": "Cosmic",
+    "title2": "Pricing",
+    "description": "Choose the perfect plan for your cosmic journey. All plans include our signature stellar service."
+  },
+  "plans": {
+    "starter": {
+      "name": "Starter",
+      "price": "$5,000",
+      "description": "Perfect for small businesses starting their cosmic journey",
+      "features": [
+        "Brand Strategy Session",
+        "Logo Design (3 Concepts)",
+        "5-Page Website",
+        "Basic SEO Setup",
+        "Social Media Setup",
+        "1 Month Support"
+      ]
+    },
+    "cosmic": {
+      "name": "Cosmic",
+      "price": "$15,000",
+      "description": "For growing brands ready to expand their universe",
+      "popular": "Most Popular",
+      "features": [
+        "Complete Brand Identity",
+        "10-Page Custom Website",
+        "Advanced SEO Strategy",
+        "Content Creation (10 pieces)",
+        "Social Media Management",
+        "Email Marketing Setup",
+        "3 Months Support",
+        "Monthly Analytics Report"
+      ]
+    },
+    "galaxy": {
+      "name": "Galaxy",
+      "price": "$35,000+",
+      "description": "Enterprise solutions for intergalactic domination",
+      "features": [
+        "Full Brand Overhaul",
+        "E-commerce Development",
+        "Advanced SEO & PPC",
+        "Content Strategy (Unlimited)",
+        "Full Social Management",
+        "Marketing Automation",
+        "12 Months Support",
+        "Dedicated Account Manager",
+        "Weekly Strategy Calls"
+      ]
+    }
+  },
+  "cta": {
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us for Custom Pricing"
+  },
+  "faq": {
+    "title": "Pricing FAQ",
+    "questions": [
+      {
+        "question": "Can I upgrade my plan later?",
+        "answer": "Absolutely! You can upgrade your plan at any time as your needs grow."
+      },
+      {
+        "question": "Do you offer custom packages?",
+        "answer": "Yes! We offer fully customized packages for unique project requirements. Contact us for a personalized quote."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, bank transfers, and PayPal."
+      }
+    ]
+  }
+}
