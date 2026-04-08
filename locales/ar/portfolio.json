@@ -4,40 +4,75 @@
     "title": "معرض الأعمال الكوني",
     "description": "استكشف مشاريعنا النجمية التي أطلقت العلامات التجارية إلى أبعاد جديدة."
   },
+  "section": {
+    "subtitle": "أعمالنا",
+    "title": "مشاريع تتألق"
+  },
   "filters": {
-    "all": "جميع المشاريع",
-    "branding": "الهوية البصرية",
-    "web": "تطوير الويب",
+    "all": "الكل",
+    "branding": "الهوية",
+    "web": "الويب",
     "marketing": "التسويق",
-    "content": "صناعة المحتوى"
+    "content": "المحتوى"
   },
-  "search": {
-    "placeholder": "ابحث عن مشروع...",
-    "noResults": "لم يتم العثور على مشاريع"
-  },
-  "sort": {
-    "newest": "الأحدث",
-    "oldest": "الأقدم"
-  },
-  "project": {
+  "projects": [
+    {
+      "id": 1,
+      "title": "نبيولا فاينانس",
+      "category": "branding",
+      "description": "هوية تجارية متكاملة لشركة ناشئة في مجال التقنية المالية",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      "gradient": "from-purple-600 to-blue-600"
+    },
+    {
+      "id": 2,
+      "title": "ستيلار للتجارة الإلكترونية",
+      "category": "web",
+      "description": "منصة تجارة إلكترونية عالية الأداء مع تجربة مستخدم كونية",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      "gradient": "from-blue-600 to-cyan-500"
+    },
+    {
+      "id": 3,
+      "title": "حملة جالاكسي",
+      "category": "marketing",
+      "description": "حملة تسويقية انتشرت بشكل واسع ووصلت إلى أكثر من 10 ملايين مشاهدة",
+      "image": "https://images.unsplash.com/photo-1557838923-2985c318be48?w=600&h=400&fit=crop",
+      "gradient": "from-indigo-600 to-purple-600"
+    },
+    {
+      "id": 4,
+      "title": "استوديو المحتوى الكوني",
+      "category": "content",
+      "description": "استراتيجية وإنتاج محتوى حائز على جوائز",
+      "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=600&h=400&fit=crop",
+      "gradient": "from-purple-500 to-pink-500"
+    },
+    {
+      "id": 5,
+      "title": "أوربت أناليتكس",
+      "category": "web",
+      "description": "لوحة تحليلات في الوقت الفعلي مع تصورات مذهلة",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      "gradient": "from-blue-500 to-indigo-600"
+    },
+    {
+      "id": 6,
+      "title": "لايف ستايل القمر",
+      "category": "branding",
+      "description": "هوية تجارية فاخرة لأسلوب حياة ودليل شامل للعلامة التجارية",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
+      "gradient": "from-purple-600 to-indigo-600"
+    }
+  ],
+  "buttons": {
     "viewProject": "عرض المشروع",
-    "client": "العميل",
-    "category": "الفئة",
-    "year": "السنة",
-    "challenge": "التحدي",
-    "solution": "حلنا",
-    "results": "النتائج",
-    "gallery": "معرض الصور",
-    "featured": "مميز"
+    "viewAll": "عرض جميع المشاريع"
   },
   "stats": {
     "projects": "مشروع مكتمل",
     "clients": "عميل سعيد",
     "awards": "جائزة",
     "years": "سنوات خبرة"
-  },
-  "cta": {
-    "title": "مستعد لتكون قصة نجاحنا القادمة؟",
-    "button": "ابدأ مشروعك"
   }
 }
