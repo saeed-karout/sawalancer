@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "badge": "Cosmic Insights",
+    "title": "Our",
+    "title2": "Blog",
+    "description": "Insights, trends, and cosmic wisdom from the Sawalancer team."
+  },
+  "categories": {
+    "all": "All Posts",
+    "marketing": "Marketing",
+    "design": "Design",
+    "development": "Development",
+    "strategy": "Strategy",
+    "news": "News"
+  },
+  "post": {
+    "readMore": "Read More",
+    "by": "By",
+    "on": "on",
+    "minRead": "min read",
+    "share": "Share",
+    "related": "Related Posts",
+    "comments": "Comments",
+    "leaveComment": "Leave a Comment"
+  },
+  "sidebar": {
+    "search": "Search",
+    "categories": "Categories",
+    "recentPosts": "Recent Posts",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get cosmic insights delivered to your inbox.",
+    "subscribe": "Subscribe"
+  }
+}

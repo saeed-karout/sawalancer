@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Our Work",
+    "title": "Cosmic Portfolio",
+    "description": "Explore our stellar projects that have launched brands into new dimensions."
+  },
+  "filters": {
+    "all": "All Projects",
+    "branding": "Branding",
+    "web": "Web Development",
+    "marketing": "Marketing",
+    "content": "Content Creation"
+  },
+  "search": {
+    "placeholder": "Search projects...",
+    "noResults": "No projects found"
+  },
+  "sort": {
+    "newest": "Newest",
+    "oldest": "Oldest"
+  },
+  "project": {
+    "viewProject": "View Project",
+    "client": "Client",
+    "category": "Category",
+    "year": "Year",
+    "challenge": "The Challenge",
+    "solution": "Our Solution",
+    "results": "Results",
+    "gallery": "Gallery",
+    "featured": "Featured"
+  },
+  "stats": {
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "awards": "Awards Won",
+    "years": "Years Experience"
+  },
+  "cta": {
+    "title": "Ready to be our next success story?",
+    "button": "Start Your Project"
+  }
+}

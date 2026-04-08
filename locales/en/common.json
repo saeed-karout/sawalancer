@@ -1,0 +1,81 @@
+{
+  "siteName": "Sawalancer",
+  "tagline": "Cosmic Creative Agency",
+  "direction": "ltr",
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
+  "buttons": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "submit": "Submit",
+    "send": "Send Message",
+    "download": "Download",
+    "launch": "Launch Project",
+    "readMore": "Read More",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "menu": "Menu",
+    "search": "Search"
+  },
+  "footer": {
+    "description": "Elevating brands with cosmic creativity and stellar digital solutions. Your partner in navigating the digital universe.",
+    "rights": "All rights reserved",
+    "crafted": "Crafted with cosmic energy",
+    "subscribe": "Subscribe to our newsletter",
+    "subscribePlaceholder": "Enter your email",
+    "followUs": "Follow our cosmic journey",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "sitemap": "Sitemap",
+    "address": "Cosmic HQ, Digital Space",
+    "phone": "+1 (234) 567-890",
+    "email": "hello@sawalancer.com"
+  },
+  "language": {
+    "en": "English",
+    "ar": "العربية",
+    "switchTo": "Switch to"
+  },
+  "notFound": {
+    "title": "Lost in Space",
+    "message": "The page you're looking for has drifted into a black hole.",
+    "backHome": "Return to Earth",
+    "maybeLooking": "Maybe you're looking for:"
+  },
+  "social": {
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "twitter": "X (Twitter)",
+    "facebook": "Facebook",
+    "youtube": "YouTube"
+  },
+  "contact": {
+    "quickResponse": "Quick response",
+    "emailUs": "Email Us",
+    "callNow": "Call Now",
+    "ourLocation": "Our Location",
+    "businessHours": "Business Hours",
+    "mondayFriday": "Monday - Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "badge": "Beyond the ordinary",
+    "title1": "Cosmic Creativity",
+    "title2": "Meets Digital",
+    "title3": "Excellence",
+    "description": "Transform your brand with Sawalancer. We blend stellar design, strategic thinking, and cutting-edge technology to launch your business into new dimensions.",
+    "cta1": "Start Your Journey",
+    "cta2": "View Our Work",
+    "stats": {
+      "projects": "Projects Launched",
+      "satisfaction": "Client Satisfaction",
+      "awards": "Global Awards"
+    }
+  },
+  "services": {
+    "subtitle": "Our Expertise",
+    "title": "Services That Elevate Your Brand",
+    "branding": {
+      "title": "Brand Identity",
+      "description": "Crafting unique brand identities that resonate with your audience and stand out in the cosmos."
+    },
+    "web": {
+      "title": "Web Development",
+      "description": "Building responsive, high-performance websites and applications with cutting-edge technology."
+    },
+    "marketing": {
+      "title": "Digital Marketing",
+      "description": "Strategic marketing campaigns that amplify your reach and drive meaningful engagement."
+    },
+    "seo": {
+      "title": "SEO Optimization",
+      "description": "Data-driven SEO strategies to boost your visibility and dominate search rankings."
+    },
+    "content": {
+      "title": "Content Creation",
+      "description": "Compelling visual content that tells your story and captivates your target audience."
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "description": "Deep analytics and actionable insights to optimize your digital presence."
+    },
+    "customCta": "Need a custom solution?",
+    "letsTalk": "Let's talk"
+  },
+  "portfolio": {
+    "subtitle": "Our Work",
+    "title": "Projects That Shine",
+    "description": "Explore our stellar projects that have launched brands into new dimensions.",
+    "filters": {
+      "all": "All Projects",
+      "branding": "Branding",
+      "web": "Web Development",
+      "marketing": "Marketing",
+      "content": "Content Creation"
+    },
+    "viewProject": "View Project"
+  },
+  "stats": {
+    "subtitle": "Our Impact",
+    "title": "Numbers That Speak",
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "satisfaction": "Satisfaction Rate",
+    "awards": "Industry Awards"
+  },
+  "testimonials": {
+    "subtitle": "Testimonials",
+    "title": "What Our Clients Say",
+    "clients": "Trusted by innovative companies worldwide"
+  },
+  "cta": {
+    "title1": "Ready to Launch",
+    "title2": "Your Brand Into",
+    "title3": "The Cosmos?",
+    "description": "Let's create something extraordinary together. Your cosmic journey begins with a single step.",
+    "button1": "Start Your Project",
+    "button2": "Schedule a Call",
+    "footnote": "No obligation • Free consultation • 24/7 support"
+  }
+}
