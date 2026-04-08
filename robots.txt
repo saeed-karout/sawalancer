@@ -2,5 +2,12 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /api/
+
+# Crawl-delay: 10
 
 Sitemap: https://sawalancer.com/sitemap.xml
+Sitemap: https://sawalancer.com/sitemap-ar.xml
+
+# Host
+Host: https://sawalancer.com
