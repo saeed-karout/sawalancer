@@ -4,10 +4,12 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 
-# Crawl-delay: 10
-
+# Sitemaps
 Sitemap: https://sawalancer.com/sitemap.xml
 Sitemap: https://sawalancer.com/sitemap-ar.xml
+
+# Crawl-delay
+Crawl-delay: 10
 
 # Host
 Host: https://sawalancer.com

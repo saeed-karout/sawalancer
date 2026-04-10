@@ -5,7 +5,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://sawalancer.com/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/"/>
@@ -15,7 +15,7 @@
   <!-- About Page -->
   <url>
     <loc>https://sawalancer.com/about</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/about"/>
@@ -25,7 +25,7 @@
   <!-- Services Page -->
   <url>
     <loc>https://sawalancer.com/services</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/services"/>
@@ -35,7 +35,7 @@
   <!-- Portfolio Page -->
   <url>
     <loc>https://sawalancer.com/portfolio</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/portfolio"/>
@@ -45,7 +45,7 @@
   <!-- Blog Page -->
   <url>
     <loc>https://sawalancer.com/blog</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/blog"/>
@@ -55,7 +55,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://sawalancer.com/contact</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/contact"/>
@@ -65,39 +65,50 @@
   <!-- Pricing Page -->
   <url>
     <loc>https://sawalancer.com/pricing</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/pricing"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://sawalancer.com/ar/pricing"/>
   </url>
   
-  <!-- Service Sub-pages -->
+  <!-- Branding Service -->
   <url>
     <loc>https://sawalancer.com/branding</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/branding"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sawalancer.com/ar/branding"/>
   </url>
   
+  <!-- Web Development -->
   <url>
     <loc>https://sawalancer.com/web</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sawalancer.com/ar/web"/>
   </url>
   
+  <!-- Digital Marketing -->
   <url>
     <loc>https://sawalancer.com/marketing</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/marketing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sawalancer.com/ar/marketing"/>
   </url>
   
+  <!-- SEO Service -->
   <url>
     <loc>https://sawalancer.com/seo</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sawalancer.com/seo"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sawalancer.com/ar/seo"/>
   </url>
 </urlset>
