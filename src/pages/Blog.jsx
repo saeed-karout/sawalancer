@@ -1,34 +1,37 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Sparkles, Calendar, User, ArrowRight } from '../components/ui/Icons'
 import { Link } from 'react-router-dom'
 
 const Blog = () => {
+  const { t, i18n } = useTranslation('blog')
+  const isArabic = i18n.language === 'ar'
   const posts = [
     {
       id: 1,
-      title: 'The Future of Digital Marketing in 2024',
-      excerpt: 'Discover the latest trends shaping the digital marketing landscape and how to stay ahead.',
+      title: isArabic ? 'مستقبل التسويق الرقمي في 2024' : 'The Future of Digital Marketing in 2024',
+      excerpt: isArabic ? 'اكتشف أحدث الاتجاهات التي تشكل مشهد التسويق الرقمي وكيف تتقدم بخطوة.' : 'Discover the latest trends shaping the digital marketing landscape and how to stay ahead.',
       date: 'Jan 15, 2024',
-      author: 'Sarah Johnson',
-      category: 'Marketing',
+      author: isArabic ? 'سارة جونسون' : 'Sarah Johnson',
+      category: t('categories.marketing'),
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop'
     },
     {
       id: 2,
-      title: 'Building a Cosmic Brand Identity',
-      excerpt: 'Learn how to create a brand identity that stands out in the crowded digital universe.',
+      title: isArabic ? 'بناء هوية علامة تجارية كونية' : 'Building a Cosmic Brand Identity',
+      excerpt: isArabic ? 'تعلّم كيف تبني هوية علامة تجارية مميزة في العالم الرقمي المزدحم.' : 'Learn how to create a brand identity that stands out in the crowded digital universe.',
       date: 'Jan 10, 2024',
-      author: 'Michael Chen',
-      category: 'Branding',
+      author: isArabic ? 'مايكل تشين' : 'Michael Chen',
+      category: t('categories.design'),
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
     },
     {
       id: 3,
-      title: 'SEO Strategies That Actually Work',
-      excerpt: 'Proven SEO techniques to boost your website rankings and drive organic traffic.',
+      title: isArabic ? 'استراتيجيات SEO فعّالة حقاً' : 'SEO Strategies That Actually Work',
+      excerpt: isArabic ? 'تقنيات SEO مجربة لرفع ترتيب موقعك وزيادة الزيارات العضوية.' : 'Proven SEO techniques to boost your website rankings and drive organic traffic.',
       date: 'Jan 5, 2024',
-      author: 'Emily Rodriguez',
-      category: 'SEO',
+      author: isArabic ? 'إيميلي رودريغيز' : 'Emily Rodriguez',
+      category: t('categories.strategy'),
       image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop'
     }
   ]
@@ -43,15 +46,15 @@ const Blog = () => {
         >
           <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-cosmic-glow" />
-            <span className="text-sm text-gray-300">Cosmic Insights</span>
+            <span className={`text-sm text-gray-300 ${isArabic ? 'font-arabic' : ''}`}>{t('hero.badge')}</span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="text-gradient">Our</span>
+          <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 ${isArabic ? 'font-arabic' : ''}`}>
+            <span className="text-gradient">{t('hero.title')}</span>
             <br />
-            <span className="text-white">Blog</span>
+            <span className="text-white">{t('hero.title2')}</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Insights, trends, and cosmic wisdom from the Sawalancer team.
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${isArabic ? 'font-arabic' : ''}`}>
+            {t('hero.description')}
           </p>
         </motion.div>
 
@@ -94,9 +97,9 @@ const Blog = () => {
                 <p className="text-gray-400 text-sm mb-4">{post.excerpt}</p>
                 <Link 
                   to={`/blog/${post.id}`}
-                  className="inline-flex items-center gap-1 text-cosmic-glow text-sm font-semibold hover:gap-2 transition-all"
+                  className={`inline-flex items-center gap-1 text-cosmic-glow text-sm font-semibold hover:gap-2 transition-all ${isArabic ? 'font-arabic' : ''}`}
                 >
-                  Read More
+                  {t('post.readMore')}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

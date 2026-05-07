@@ -17,8 +17,13 @@ i18n
     },
     
     backend: {
+      // تصحيح: تحديد مسار ملفات الترجمة بشكل صحيح
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
+    
+    // مهم: تحديد namespace الافتراضي
+    ns: ['common', 'home', 'about', 'services', 'portfolio', 'blog', 'contact', 'pricing'],
+    defaultNS: 'common',
     
     detection: {
       order: ['localStorage', 'navigator'],
@@ -34,8 +39,7 @@ i18n
 // Set document direction based on language
 i18n.on('languageChanged', (lng) => {
   document.documentElement.lang = lng
-  document.documentElement.dir = lng === 'ar' ? 'ltr' : 'ltr'
-  document.body.className = lng === 'ar' ? 'ltr' : 'ltr'
+  document.documentElement.dir = 'ltr'
 })
 
 export default i18n

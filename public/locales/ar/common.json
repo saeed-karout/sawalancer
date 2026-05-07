@@ -46,12 +46,15 @@
     "sitemap": "خريطة الموقع",
     "address": "المقر الكوني، الفضاء الرقمي",
     "phone": "+963 957 608 833",
-    "email": "info@sawalancer.com"
+    "email": "info@sawalancer.com",
+    "subscribeSuccess": "✓ تم الاشتراك",
+    "subscribeError": "✗ حدث خطأ"
   },
   "language": {
     "en": "English",
     "ar": "العربية",
-    "switchTo": "تغيير إلى"
+    "switchTo": "تغيير إلى",
+    "preferred": "اختر لغتك المفضلة"
   },
   "notFound": {
     "title": "ضائع في الفضاء",

@@ -21,28 +21,28 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: t('info.whatsapp'),
-      value: '+1 (234) 567-890',
-      link: 'https://wa.me/1234567890',
+      value: '+963 957 608 833',
+      link: 'https://wa.me/963957608833',
       color: 'from-green-500 to-green-600'
     },
     {
       icon: Mail,
       title: t('info.email'),
-      value: 'hello@sawalancer.com',
-      link: 'mailto:hello@sawalancer.com',
+      value: 'info@sawalancer.com',
+      link: 'mailto:info@sawalancer.com',
       color: 'from-cosmic-saturated to-cosmic-dark'
     },
     {
       icon: Phone,
       title: t('info.phone'),
-      value: '+1 (234) 567-890',
-      link: 'tel:+1234567890',
+      value: '+963 957 608 833',
+      link: 'tel:+963957608833',
       color: 'from-cosmic-sky to-cosmic-mid'
     },
     {
       icon: MapPin,
       title: t('info.location'),
-      value: 'Cosmic HQ, Digital Galaxy',
+      value: t('map.address'),
       color: 'from-cosmic-medium to-cosmic-glow'
     }
   ]
@@ -168,12 +168,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className={`text-3xl font-bold text-white mb-4 ${isRTL ? 'font-arabic' : ''}`}>
-              {isRTL ? 'موقعنا الكوني' : 'Our Cosmic Location'}
-            </h2>
-            <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>
-              {isRTL ? 'زرنا في مقرنا الرئيسي في قلب المجرة الرقمية' : 'Visit us at our headquarters in the heart of the digital galaxy'}
-            </p>
+              <h2 className={`text-3xl font-bold text-white mb-4 ${isRTL ? 'font-arabic' : ''}`}>{t('map.title')}</h2>
+              <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>{t('map.address')}</p>
           </motion.div>
           
           <motion.div
@@ -195,10 +191,10 @@ const Contact = () => {
                   <MapPin className="w-10 h-10 text-cosmic-glow" />
                 </div>
                 <h3 className={`text-2xl font-bold text-white mb-3 ${isRTL ? 'font-arabic' : ''}`}>
-                  {isRTL ? 'المقر الكوني' : 'Cosmic Headquarters'}
+                  {t('map.title')}
                 </h3>
                 <p className="text-gray-400 mb-4">
-                  Digital Galaxy, Earth<br />
+                  {t('map.address')}<br />
                   Cosmic Sector 7, Nebula District
                 </p>
                 <div className={`inline-flex items-center gap-2 glass px-4 py-2 rounded-full ${isRTL ? 'flex-row-reverse' : ''}`}>

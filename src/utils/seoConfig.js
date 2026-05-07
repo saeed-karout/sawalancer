@@ -1,11 +1,13 @@
 export const siteConfig = {
   name: 'Sawalancer',
   title: 'Sawalancer | Cosmic Creative Agency',
-  description: 'Transform your brand with Sawalancer. We blend stellar design, strategic thinking, and cutting-edge technology to launch your business into new dimensions.',
+  fullTitle: 'Sawalancer | Cosmic Creative Agency - Branding, Web Development & Digital Marketing',
+  description: 'Sawalancer is a cosmic creative agency specializing in brand identity, web development, digital marketing, and SEO. Transform your brand with stellar design and interstellar strategy. Get a free consultation today.',
   url: 'https://sawalancer.com',
   ogImage: 'https://sawalancer.com/og-image.jpg',
   twitterHandle: '@sawalancer',
   locale: 'en_US',
+  alternateLocale: 'ar_SA',
   keywords: [
     'creative agency',
     'digital marketing',
@@ -18,15 +20,25 @@ export const siteConfig = {
     'social media marketing',
     'content creation',
     'brand strategy',
-    'digital transformation'
-  ]
+    'digital transformation',
+    'Sawalancer',
+    'cosmic creative agency'
+  ],
+  foundingDate: '2016',
+  email: 'hello@sawalancer.com',
+  phone: '+1-234-567-890',
+  address: {
+    street: 'Digital Galaxy, Cosmic Sector 7',
+    locality: 'Digital Space',
+    country: 'US'
+  }
 }
 
 export const pageSEO = {
   home: {
-    title: 'Cosmic Creative Agency | Digital Marketing & Web Development',
-    description: 'Sawalancer is a cosmic creative agency specializing in brand identity, web development, digital marketing, and SEO. Launch your brand into new dimensions.',
-    keywords: 'creative agency, digital marketing, web development, branding, SEO, cosmic design',
+    title: 'Sawalancer | Cosmic Creative Agency - Branding, Web Development & Digital Marketing',
+    description: 'Transform your brand with Sawalancer. We blend stellar design, strategic thinking, and cutting-edge technology to launch your business into new dimensions. Branding, Web Dev, SEO & Digital Marketing.',
+    keywords: 'creative agency, digital marketing, web development, branding, SEO, cosmic design, Sawalancer',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
@@ -43,39 +55,39 @@ export const pageSEO = {
         telephone: '+1-234-567-890',
         contactType: 'customer service',
         email: 'hello@sawalancer.com',
-        availableLanguage: ['English']
+        availableLanguage: ['English', 'Arabic']
       }
     }
   },
   about: {
-    title: 'About Us | Meet the Cosmic Team Behind Sawalancer',
-    description: 'Learn about Sawalancer - a team of creative designers, developers, and strategists dedicated to transforming brands through innovative digital solutions.',
-    keywords: 'about sawalancer, creative team, digital agency team, design studio'
+    title: 'About Sawalancer | Cosmic Creative Team & Our Story',
+    description: 'Learn about Sawalancer - an award-winning cosmic creative agency. Meet our team of designers, developers, and strategists dedicated to transforming brands through innovative digital solutions.',
+    keywords: 'about sawalancer, creative team, digital agency team, design studio, cosmic agency'
   },
   services: {
-    title: 'Our Services | Branding, Web Development & Digital Marketing',
-    description: 'Explore our comprehensive range of services including brand identity, web development, SEO, digital marketing, and content creation.',
-    keywords: 'branding services, web development, digital marketing, SEO services, content creation'
+    title: 'Our Services | Branding, Web Development & Digital Marketing Agency',
+    description: 'Explore Sawalancer\'s comprehensive cosmic services: brand identity, web development, SEO, digital marketing, and content creation. Launch your brand into new dimensions.',
+    keywords: 'branding services, web development, digital marketing, SEO services, content creation, creative services'
   },
   portfolio: {
-    title: 'Portfolio | Our Cosmic Creative Projects',
-    description: 'Browse our portfolio of successful projects. See how we\'ve helped brands achieve stellar results through creative design and strategic marketing.',
-    keywords: 'portfolio, case studies, creative projects, design portfolio, web design projects'
+    title: 'Portfolio | Our Cosmic Creative Projects & Case Studies',
+    description: 'Browse Sawalancer\'s portfolio of award-winning projects. See how we\'ve helped brands achieve stellar results through creative design and strategic marketing.',
+    keywords: 'portfolio, case studies, creative projects, design portfolio, web design projects, branding portfolio'
   },
   blog: {
-    title: 'Blog | Cosmic Insights on Digital Marketing & Design',
-    description: 'Read our latest articles on digital marketing trends, design inspiration, SEO strategies, and creative insights from the Sawalancer team.',
-    keywords: 'digital marketing blog, design blog, SEO tips, creative insights'
+    title: 'Blog | Cosmic Insights on Digital Marketing, Design & SEO',
+    description: 'Read Sawalancer\'s latest articles on digital marketing trends, design inspiration, SEO strategies, and creative insights. Expert advice for your brand\'s cosmic journey.',
+    keywords: 'digital marketing blog, design blog, SEO tips, creative insights, marketing trends'
   },
   contact: {
-    title: 'Contact Us | Let\'s Create Something Cosmic Together',
-    description: 'Get in touch with Sawalancer. We\'re ready to help you launch your brand into new dimensions. Contact us for a free consultation.',
-    keywords: 'contact sawalancer, get in touch, creative agency contact'
+    title: 'Contact Sawalancer | Let\'s Create Something Cosmic Together',
+    description: 'Get in touch with Sawalancer. We\'re ready to help you launch your brand into new dimensions. Contact us for a free consultation and quote.',
+    keywords: 'contact sawalancer, get in touch, creative agency contact, free consultation, project quote'
   },
   pricing: {
-    title: 'Pricing | Transparent Pricing for Cosmic Services',
-    description: 'Explore our transparent pricing plans for branding, web development, and digital marketing services. Choose the perfect package for your needs.',
-    keywords: 'pricing, packages, service pricing, digital agency pricing'
+    title: 'Pricing | Transparent Pricing for Cosmic Creative Services',
+    description: 'Explore Sawalancer\'s transparent pricing plans for branding, web development, and digital marketing services. Choose the perfect package for your cosmic journey.',
+    keywords: 'pricing, packages, service pricing, digital agency pricing, creative services cost'
   }
 }
 
@@ -84,38 +96,57 @@ export const generateSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.name,
+    alternateName: 'Sawalancer Creative Agency',
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
+    image: `${siteConfig.url}/og-image.jpg`,
     description: siteConfig.description,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Digital Space',
-      addressCountry: 'US'
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.locality,
+      addressCountry: siteConfig.address.country
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-234-567-890',
+      telephone: siteConfig.phone,
       contactType: 'customer service',
-      email: 'hello@sawalancer.com',
-      availableLanguage: ['English']
+      email: siteConfig.email,
+      availableLanguage: ['English', 'Arabic'],
+      areaServed: 'Worldwide'
     },
     sameAs: [
       'https://twitter.com/sawalancer',
       'https://linkedin.com/company/sawalancer',
-      'https://instagram.com/sawalancer'
-    ]
+      'https://instagram.com/sawalancer',
+      'https://facebook.com/sawalancer'
+    ],
+    knowsAbout: [
+      'Brand Identity',
+      'Web Development',
+      'Digital Marketing',
+      'SEO',
+      'Content Creation',
+      'UI/UX Design',
+      'Social Media Marketing'
+    ],
+    slogan: 'Cosmic Creativity Meets Digital Excellence',
+    foundingDate: siteConfig.foundingDate
   }),
   
   website: () => ({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
+    alternateName: 'Sawalancer Cosmic Creative Agency',
     url: siteConfig.url,
+    description: siteConfig.description,
     potentialAction: {
       '@type': 'SearchAction',
       target: `${siteConfig.url}/search?q={search_term_string}`,
       'query-input': 'required name=search_term_string'
-    }
+    },
+    inLanguage: ['en', 'ar']
   }),
   
   breadcrumb: (items) => ({
@@ -149,10 +180,16 @@ export const generateSchema = {
     description: service.description,
     provider: {
       '@type': 'Organization',
-      name: siteConfig.name
+      name: siteConfig.name,
+      url: siteConfig.url
     },
     serviceType: service.type,
-    areaServed: 'Worldwide'
+    areaServed: 'Worldwide',
+    offers: {
+      '@type': 'Offer',
+      price: service.price,
+      priceCurrency: 'USD'
+    }
   }),
   
   article: (article) => ({
@@ -175,5 +212,60 @@ export const generateSchema = {
         url: `${siteConfig.url}/logo.png`
       }
     }
+  }),
+  
+  review: (review) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    reviewBody: review.body,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating,
+      bestRating: '5',
+      worstRating: '1'
+    },
+    author: {
+      '@type': 'Person',
+      name: review.author
+    },
+    itemReviewed: {
+      '@type': 'Organization',
+      name: siteConfig.name
+    }
   })
 }
+
+// Schema for Service Pages
+export const servicePageSchema = (service) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.name,
+  description: service.description,
+  provider: {
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.url
+  },
+  serviceType: service.type,
+  areaServed: 'Worldwide',
+  offers: {
+    '@type': 'Offer',
+    price: service.startingPrice,
+    priceCurrency: 'USD'
+  }
+})
+
+// Schema for Portfolio Item
+export const portfolioItemSchema = (project) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  description: project.description,
+  image: project.image,
+  creator: {
+    '@type': 'Organization',
+    name: siteConfig.name
+  },
+  datePublished: project.year,
+  keywords: project.tags?.join(', ')
+})

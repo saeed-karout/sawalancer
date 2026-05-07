@@ -1,56 +1,34 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Sparkles, CheckCircle, Star } from '../components/ui/Icons'
 import GlowButton from '../components/ui/GlowButton'
 
 const Pricing = () => {
+  const { t, i18n } = useTranslation('pricing')
+  const isArabic = i18n.language === 'ar'
+
   const plans = [
     {
-      name: 'Starter',
-      price: '$5,000',
-      description: 'Perfect for small businesses starting their cosmic journey',
-      features: [
-        'Brand Strategy Session',
-        'Logo Design (3 Concepts)',
-        '5-Page Website',
-        'Basic SEO Setup',
-        'Social Media Setup',
-        '1 Month Support'
-      ],
+      name: t('plans.starter.name'),
+      price: t('plans.starter.price'),
+      description: t('plans.starter.description'),
+      features: t('plans.starter.features', { returnObjects: true }),
       color: 'from-cosmic-navy to-cosmic-dark',
       popular: false
     },
     {
-      name: 'Cosmic',
-      price: '$15,000',
-      description: 'For growing brands ready to expand their universe',
-      features: [
-        'Complete Brand Identity',
-        '10-Page Custom Website',
-        'Advanced SEO Strategy',
-        'Content Creation (10 pieces)',
-        'Social Media Management',
-        'Email Marketing Setup',
-        '3 Months Support',
-        'Monthly Analytics Report'
-      ],
+      name: t('plans.cosmic.name'),
+      price: t('plans.cosmic.price'),
+      description: t('plans.cosmic.description'),
+      features: t('plans.cosmic.features', { returnObjects: true }),
       color: 'from-cosmic-saturated to-cosmic-mid',
       popular: true
     },
     {
-      name: 'Galaxy',
-      price: '$35,000+',
-      description: 'Enterprise solutions for intergalactic domination',
-      features: [
-        'Full Brand Overhaul',
-        'E-commerce Development',
-        'Advanced SEO & PPC',
-        'Content Strategy (Unlimited)',
-        'Full Social Management',
-        'Marketing Automation',
-        '12 Months Support',
-        'Dedicated Account Manager',
-        'Weekly Strategy Calls'
-      ],
+      name: t('plans.galaxy.name'),
+      price: t('plans.galaxy.price'),
+      description: t('plans.galaxy.description'),
+      features: t('plans.galaxy.features', { returnObjects: true }),
       color: 'from-cosmic-dark to-cosmic-saturated',
       popular: false
     }
@@ -66,15 +44,15 @@ const Pricing = () => {
         >
           <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-cosmic-glow" />
-            <span className="text-sm text-gray-300">Simple Pricing</span>
+            <span className={`text-sm text-gray-300 ${isArabic ? 'font-arabic' : ''}`}>{t('hero.badge')}</span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="text-gradient">Cosmic</span>
+          <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 ${isArabic ? 'font-arabic' : ''}`}>
+            <span className="text-gradient">{t('hero.title')}</span>
             <br />
-            <span className="text-white">Pricing</span>
+            <span className="text-white">{t('hero.title2')}</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Choose the perfect plan for your cosmic journey. All plans include our signature stellar service.
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${isArabic ? 'font-arabic' : ''}`}>
+            {t('hero.description')}
           </p>
         </motion.div>
 
@@ -89,28 +67,28 @@ const Pricing = () => {
               className={`relative cosmic-card p-8 ${plan.popular ? 'border-cosmic-glow shadow-lg shadow-cosmic-saturated/20' : ''}`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cosmic-glow to-cosmic-sky rounded-full text-white text-xs font-bold">
-                  Most Popular
+                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cosmic-glow to-cosmic-sky rounded-full text-white text-xs font-bold ${isArabic ? 'font-arabic' : ''}`}>
+                  {t('plans.cosmic.popular')}
+                  </div>
+                )}
+               
+                <div className="text-center mb-6">
+                  <h3 className={`text-2xl font-bold text-white mb-2 ${isArabic ? 'font-arabic' : ''}`}>{plan.name}</h3>
+                  <div className="text-4xl font-bold text-gradient mb-2">{plan.price}</div>
+                  <p className={`text-gray-400 text-sm ${isArabic ? 'font-arabic' : ''}`}>{plan.description}</p>
                 </div>
-              )}
-              
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <div className="text-4xl font-bold text-gradient mb-2">{plan.price}</div>
-                <p className="text-gray-400 text-sm">{plan.description}</p>
-              </div>
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cosmic-glow flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{feature}</span>
+                    <span className={`text-gray-300 text-sm ${isArabic ? 'font-arabic' : ''}`}>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <GlowButton className="w-full">
-                Get Started
+              <GlowButton className={`w-full ${isArabic ? 'font-arabic' : ''}`}>
+                {t('cta.getStarted')}
                 <Star className="inline ml-2 w-4 h-4" />
               </GlowButton>
             </motion.div>

@@ -23,15 +23,19 @@
     "namePlaceholder": "John Doe",
     "email": "Email Address",
     "emailPlaceholder": "john@example.com",
+    "company": "Company Name",
+    "companyPlaceholder": "Enter your company name",
     "phone": "Phone Number",
     "phonePlaceholder": "+1 (234) 567-890",
     "service": "Service Interested In",
+    "services": "Services",
     "servicePlaceholder": "Select a service",
     "budget": "Project Budget",
     "budgetPlaceholder": "Select budget range",
     "message": "Your Message",
     "messagePlaceholder": "Tell us about your project, goals, and timeline...",
     "submit": "Send Message",
+    "submitting": "Submitting...",
     "sending": "Sending...",
     "success": {
       "title": "Message Sent Successfully!",
@@ -62,10 +66,16 @@
     "nameMin": "Name must be at least 2 characters",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
+    "companyRequired": "Company name is required",
+    "companyMinLength": "Company name must be at least 2 characters",
+    "companyMaxLength": "Company name must be less than 100 characters",
     "messageRequired": "Message is required",
     "messageMin": "Message must be at least 10 characters",
-    "serviceRequired": "Please select a service"
+    "messageMaxLength": "Message must be less than 1000 characters",
+    "serviceRequired": "Please select a service",
+    "servicesRequired": "Please select at least one service"
   },
+  "unknownService": "Unknown Service ({{id}})",
   "map": {
     "title": "Visit Our Cosmic HQ",
     "address": "Digital Galaxy, Earth"

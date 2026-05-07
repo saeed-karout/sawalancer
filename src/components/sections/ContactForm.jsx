@@ -1,132 +1,189 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { 
-  Send, CheckCircle, AlertCircle, User, Mail, 
-  Phone, MessageSquare, Briefcase, Sparkles,
-  Rocket, Star
+import {
+  Send, CheckCircle, AlertCircle, Mail,
+  MessageSquare, Briefcase, Sparkles, Rocket, Star
 } from '../ui/Icons'
+import servicesData from '../../data/services-contact.json'
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkoyvzqe'
+
+const getStoredServices = () => {
+  try {
+    const stored = localStorage.getItem('selectedServices')
+    const parsed = stored ? JSON.parse(stored) : []
+    return Array.isArray(parsed) ? parsed : []
+  } catch (error) {
+    console.warn('Failed to parse selectedServices from localStorage:', error)
+    return []
+  }
+}
 
 const ContactForm = () => {
   const { t, i18n } = useTranslation('contact')
-  const isRTL = i18n.language === 'ar'
-  
+  const currentLang = i18n.language?.split('-')[0] || 'en'
+  const isRTL = currentLang === 'ar'
+
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
-    phone: '',
-    service: '',
-    budget: '',
-    message: ''
+    companyName: '',
+    message: '',
+    services: getStoredServices(),
   })
 
   const [errors, setErrors] = useState({})
+  const [formStatus, setFormStatus] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
+  const [showAllErrors, setShowAllErrors] = useState(false)
   const [activeField, setActiveField] = useState(null)
 
-  const services = isRTL ? [
-    'الهوية والاستراتيجية',
-    'تطوير الويب',
-    'التسويق الرقمي',
-    'تحسين محركات البحث',
-    'صناعة المحتوى',
-    'إدارة وسائل التواصل',
-    'تصميم UI/UX',
-    'استشارات'
-  ] : [
-    'Brand Identity & Strategy',
-    'Web Development',
-    'Digital Marketing',
-    'SEO Optimization',
-    'Content Creation',
-    'Social Media Management',
-    'UI/UX Design',
-    'Consulting'
-  ]
+  const validationRules = {
+    email: (value) => {
+      if (!value.trim()) return t('validation.emailRequired')
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(value)) return t('validation.emailInvalid')
+      return null
+    },
+    companyName: (value) => {
+      if (!value.trim()) return t('validation.companyRequired')
+      if (value.trim().length < 2) return t('validation.companyMinLength')
+      if (value.trim().length > 100) return t('validation.companyMaxLength')
+      return null
+    },
+    message: (value) => {
+      if (!value.trim()) return t('validation.messageRequired')
+      if (value.trim().length > 1000) return t('validation.messageMaxLength')
+      return null
+    },
+    services: (value) => {
+      if (!Array.isArray(value) || value.length === 0) return t('validation.servicesRequired')
+      return null
+    },
+  }
 
-  const budgets = isRTL ? [
-    '١٨,٠٠٠ - ٣٧,٠٠٠ ريال',
-    '٣٧,٠٠٠ - ٩٣,٠٠٠ ريال',
-    '٩٣,٠٠٠ - ١٨٧,٠٠٠ ريال',
-    '١٨٧,٠٠٠ - ٣٧٥,٠٠٠ ريال',
-    '+٣٧٥,٠٠٠ ريال'
-  ] : [
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000+'
-  ]
+  const validateField = (name, value) => {
+    const validator = validationRules[name]
+    return validator ? validator(value) : null
+  }
 
-  const validateForm = () => {
+  const validateForm = (data) => {
     const newErrors = {}
-    
-    if (!formData.name.trim()) {
-      newErrors.name = t('validation.nameRequired')
-    } else if (formData.name.length < 2) {
-      newErrors.name = t('validation.nameMin')
-    }
+    Object.keys(validationRules).forEach((key) => {
+      const error = validateField(key, data[key])
+      if (error) newErrors[key] = error
+    })
+    return newErrors
+  }
 
-    if (!formData.email.trim()) {
-      newErrors.email = t('validation.emailRequired')
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t('validation.emailInvalid')
+  useEffect(() => {
+    try {
+      localStorage.setItem('selectedServices', JSON.stringify(formData.services))
+    } catch (error) {
+      console.warn('Failed to save selectedServices to localStorage:', error)
     }
+  }, [formData.services])
 
-    if (!formData.message.trim()) {
-      newErrors.message = t('validation.messageRequired')
-    } else if (formData.message.length < 10) {
-      newErrors.message = t('validation.messageMin')
+  const isFormValid = () => Object.keys(validateForm(formData)).length === 0
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+
+    if (errors[name] && value.trim() !== '') {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: null,
+      }))
     }
+  }
 
-    if (!formData.service) {
-      newErrors.service = t('validation.serviceRequired')
+  const handleServiceToggle = (serviceId) => {
+    const selectedServiceId = serviceId.toString()
+    const isSelected = formData.services.includes(selectedServiceId)
+
+    const newServices = isSelected
+      ? formData.services.filter((id) => id !== selectedServiceId)
+      : [...formData.services, selectedServiceId]
+
+    setFormData((prev) => ({
+      ...prev,
+      services: newServices,
+    }))
+
+    if (errors.services && newServices.length > 0) {
+      setErrors((prev) => ({
+        ...prev,
+        services: null,
+      }))
     }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (!validateForm()) {
+    setShowAllErrors(true)
+
+    const formErrors = validateForm(formData)
+    setErrors(formErrors)
+
+    if (Object.keys(formErrors).length > 0) {
+      const firstError = document.querySelector('.error-message')
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' })
       return
     }
 
     setIsSubmitting(true)
-    
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      console.log('Form submitted:', formData)
-      
-      setSubmitStatus('success')
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        budget: '',
-        message: ''
+      const serviceTitles = formData.services
+        .map((id) => {
+          const service = servicesData.find((s) => s.id.toString() === id)
+          return service?.title?.[currentLang] || t('unknownService', { id })
+        })
+        .filter(Boolean)
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          companyName: formData.companyName,
+          message: formData.message,
+          services: serviceTitles.join(', '),
+        }),
       })
-      
-      setTimeout(() => setSubmitStatus(null), 5000)
+
+      if (!response.ok) throw new Error(`Form submission failed with status: ${response.status}`)
+
+      setFormStatus('success')
+      setFormData({
+        email: '',
+        companyName: '',
+        message: '',
+        services: [],
+      })
+      setErrors({})
+      setShowAllErrors(false)
+      localStorage.removeItem('selectedServices')
+
+      setTimeout(() => setFormStatus(null), 7000)
     } catch (error) {
-      setSubmitStatus('error')
-      setTimeout(() => setSubmitStatus(null), 5000)
+      console.error('Form submission error:', error)
+      setFormStatus('error')
+      setTimeout(() => setFormStatus(null), 5000)
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }))
-    }
-  }
+  const shouldShowError = (fieldName) => showAllErrors && errors[fieldName]
 
   return (
     <section className="relative py-24 overflow-hidden">
@@ -137,7 +194,6 @@ const ContactForm = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,12 +202,11 @@ const ContactForm = () => {
           >
             <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-cosmic-glow" />
-              <span className="text-sm text-gray-300">{t('form.title')}</span>
+              <span className={`text-sm text-gray-300 ${isRTL ? 'font-arabic' : ''}`}>{t('form.title')}</span>
             </div>
           </motion.div>
 
           <div className={`grid lg:grid-cols-3 gap-8 ${isRTL ? 'rtl' : ''}`}>
-            {/* Info Cards */}
             <motion.div
               initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -162,27 +217,26 @@ const ContactForm = () => {
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cosmic-saturated to-cosmic-dark flex items-center justify-center mb-6">
                   <Rocket className="w-7 h-7 text-cosmic-glow" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{t('info.whatsapp')}</h3>
-                <p className="text-gray-400">{t('info.whatsappDesc')}</p>
+                <h3 className={`text-xl font-bold text-white mb-3 ${isRTL ? 'font-arabic' : ''}`}>{t('info.whatsapp')}</h3>
+                <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>{t('info.whatsappDesc')}</p>
               </div>
 
               <div className="cosmic-card p-8">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cosmic-sky to-cosmic-mid flex items-center justify-center mb-6">
                   <Star className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{t('whyChoose.title')}</h3>
+                <h3 className={`text-xl font-bold text-white mb-3 ${isRTL ? 'font-arabic' : ''}`}>{t('whyChoose.title')}</h3>
                 <ul className="space-y-2">
                   {t('whyChoose.items', { returnObjects: true }).map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-400">
+                    <li key={i} className={`flex items-start gap-2 text-gray-400 ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
                       <CheckCircle className="w-4 h-4 text-cosmic-glow flex-shrink-0 mt-1" />
-                      <span>{item}</span>
+                      <span className={isRTL ? 'font-arabic' : ''}>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </motion.div>
 
-            {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -191,7 +245,7 @@ const ContactForm = () => {
             >
               <div className="cosmic-card p-8 md:p-10">
                 <AnimatePresence mode="wait">
-                  {submitStatus === 'success' ? (
+                  {formStatus === 'success' ? (
                     <motion.div
                       key="success"
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -202,16 +256,16 @@ const ContactForm = () => {
                       <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-500/20 flex items-center justify-center">
                         <CheckCircle className="w-10 h-10 text-green-400" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">{t('form.success.title')}</h3>
-                      <p className="text-gray-400 mb-6">{t('form.success.message')}</p>
+                      <h3 className={`text-2xl font-bold text-white mb-3 ${isRTL ? 'font-arabic' : ''}`}>{t('form.success.title')}</h3>
+                      <p className={`text-gray-400 mb-6 ${isRTL ? 'font-arabic' : ''}`}>{t('form.success.message')}</p>
                       <button
-                        onClick={() => setSubmitStatus(null)}
+                        onClick={() => setFormStatus(null)}
                         className="glass px-6 py-3 rounded-full text-white hover:bg-white/10 transition-all"
                       >
                         {t('form.success.button')}
                       </button>
                     </motion.div>
-                  ) : submitStatus === 'error' ? (
+                  ) : formStatus === 'error' ? (
                     <motion.div
                       key="error"
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -222,10 +276,10 @@ const ContactForm = () => {
                       <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-red-500/20 flex items-center justify-center">
                         <AlertCircle className="w-10 h-10 text-red-400" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">{t('form.error.title')}</h3>
-                      <p className="text-gray-400 mb-6">{t('form.error.message')}</p>
+                      <h3 className={`text-2xl font-bold text-white mb-3 ${isRTL ? 'font-arabic' : ''}`}>{t('form.error.title')}</h3>
+                      <p className={`text-gray-400 mb-6 ${isRTL ? 'font-arabic' : ''}`}>{t('form.error.message')}</p>
                       <button
-                        onClick={() => setSubmitStatus(null)}
+                        onClick={() => setFormStatus(null)}
                         className="glass px-6 py-3 rounded-full text-white hover:bg-white/10 transition-all"
                       >
                         {t('form.error.button')}
@@ -240,187 +294,100 @@ const ContactForm = () => {
                       onSubmit={handleSubmit}
                       className="space-y-6"
                     >
-                      {/* Form fields with RTL support */}
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
-                            {t('form.name')} *
-                          </label>
-                          <div className="relative">
-                            <User className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors
-                              ${activeField === 'name' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
-                            <input
-                              type="text"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleChange}
-                              onFocus={() => setActiveField('name')}
-                              onBlur={() => setActiveField(null)}
-                              className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 
-                                focus:outline-none focus:border-cosmic-sky transition-all
-                                ${errors.name ? 'border-red-500/50' : 'border-transparent'}`}
-                              placeholder={t('form.namePlaceholder')}
-                              dir={isRTL ? 'rtl' : 'ltr'}
-                            />
-                          </div>
-                          {errors.name && (
-                            <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                              <AlertCircle className="w-3 h-3" />
-                              {errors.name}
-                            </p>
-                          )}
-                        </div>
-
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
-                            {t('form.email')} *
-                          </label>
-                          <div className="relative">
-                            <Mail className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors
-                              ${activeField === 'email' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
-                            <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              onFocus={() => setActiveField('email')}
-                              onBlur={() => setActiveField(null)}
-                              className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 
-                                focus:outline-none focus:border-cosmic-sky transition-all
-                                ${errors.email ? 'border-red-500/50' : 'border-transparent'}`}
-                              placeholder={t('form.emailPlaceholder')}
-                              dir="ltr"
-                            />
-                          </div>
-                          {errors.email && (
-                            <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                              <AlertCircle className="w-3 h-3" />
-                              {errors.email}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
-                            {t('form.phone')}
-                          </label>
-                          <div className="relative">
-                            <Phone className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors
-                              ${activeField === 'phone' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
-                            <input
-                              type="tel"
-                              name="phone"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              onFocus={() => setActiveField('phone')}
-                              onBlur={() => setActiveField(null)}
-                              className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 
-                                focus:outline-none focus:border-cosmic-sky transition-all`}
-                              placeholder={t('form.phonePlaceholder')}
-                              dir="ltr"
-                            />
-                          </div>
-                        </div>
-
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
-                            {t('form.service')} *
-                          </label>
-                          <div className="relative">
-                            <Briefcase className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors
-                              ${activeField === 'service' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
-                            <select
-                              name="service"
-                              value={formData.service}
-                              onChange={handleChange}
-                              onFocus={() => setActiveField('service')}
-                              onBlur={() => setActiveField(null)}
-                              className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white 
-                                focus:outline-none focus:border-cosmic-sky transition-all appearance-none
-                                ${errors.service ? 'border-red-500/50' : 'border-transparent'}`}
-                              dir={isRTL ? 'rtl' : 'ltr'}
-                            >
-                              <option value="" className="bg-cosmic-background">{t('form.servicePlaceholder')}</option>
-                              {services.map(service => (
-                                <option key={service} value={service} className="bg-cosmic-background">
-                                  {service}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                          {errors.service && (
-                            <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                              <AlertCircle className="w-3 h-3" />
-                              {errors.service}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
-                          {t('form.budget')}
-                        </label>
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl glass text-white 
-                            focus:outline-none focus:border-cosmic-sky transition-all appearance-none"
-                          dir={isRTL ? 'rtl' : 'ltr'}
-                        >
-                          <option value="" className="bg-cosmic-background">{t('form.budgetPlaceholder')}</option>
-                          {budgets.map(budget => (
-                            <option key={budget} value={budget} className="bg-cosmic-background">
-                              {budget}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
-                          {t('form.message')} *
+                        <label className={`block text-sm font-medium text-gray-300 mb-2 ${isRTL ? 'font-arabic' : ''}`}>
+                          {t('form.email')} <span className="text-red-400">*</span>
                         </label>
                         <div className="relative">
-                          <MessageSquare className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-4 w-5 h-5 transition-colors
-                            ${activeField === 'message' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
+                          <Mail className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${activeField === 'email' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            onFocus={() => setActiveField('email')}
+                            onBlur={() => setActiveField(null)}
+                            placeholder={t('form.emailPlaceholder')}
+                            className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 focus:outline-none focus:border-cosmic-sky transition-all ${shouldShowError('email') ? 'border-red-500/50' : 'border-transparent'}`}
+                            dir="ltr"
+                          />
+                        </div>
+                        {shouldShowError('email') && <p className={`error-message text-red-400 text-sm mt-1 ${isRTL ? 'font-arabic' : ''}`}>{errors.email}</p>}
+                      </div>
+
+                      <div>
+                        <label className={`block text-sm font-medium text-gray-300 mb-2 ${isRTL ? 'font-arabic' : ''}`}>
+                          {t('form.company')} <span className="text-red-400">*</span>
+                        </label>
+                        <div className="relative">
+                          <Briefcase className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${activeField === 'companyName' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
+                          <input
+                            type="text"
+                            name="companyName"
+                            value={formData.companyName}
+                            onChange={handleChange}
+                            onFocus={() => setActiveField('companyName')}
+                            onBlur={() => setActiveField(null)}
+                            placeholder={t('form.companyPlaceholder')}
+                            className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 focus:outline-none focus:border-cosmic-sky transition-all ${shouldShowError('companyName') ? 'border-red-500/50' : 'border-transparent'}`}
+                            dir={isRTL ? 'rtl' : 'ltr'}
+                          />
+                        </div>
+                        {shouldShowError('companyName') && <p className={`error-message text-red-400 text-sm mt-1 ${isRTL ? 'font-arabic' : ''}`}>{errors.companyName}</p>}
+                      </div>
+
+                      <div>
+                        <label className={`block text-sm font-medium text-gray-300 mb-2 ${isRTL ? 'font-arabic' : ''}`}>
+                          {t('form.message')} <span className="text-red-400">*</span>
+                        </label>
+                        <div className="relative">
+                          <MessageSquare className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-4 w-5 h-5 transition-colors ${activeField === 'message' ? 'text-cosmic-glow' : 'text-gray-500'}`} />
                           <textarea
                             name="message"
+                            rows="5"
                             value={formData.message}
                             onChange={handleChange}
                             onFocus={() => setActiveField('message')}
                             onBlur={() => setActiveField(null)}
-                            rows="5"
-                            className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 
-                              focus:outline-none focus:border-cosmic-sky transition-all resize-none
-                              ${errors.message ? 'border-red-500/50' : 'border-transparent'}`}
                             placeholder={t('form.messagePlaceholder')}
+                            className={`w-full ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 rounded-xl glass text-white placeholder-gray-500 focus:outline-none focus:border-cosmic-sky transition-all resize-none ${shouldShowError('message') ? 'border-red-500/50' : 'border-transparent'}`}
                             dir={isRTL ? 'rtl' : 'ltr'}
                           />
                         </div>
-                        {errors.message && (
-                          <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3" />
-                            {errors.message}
-                          </p>
-                        )}
+                        {shouldShowError('message') && <p className={`error-message text-red-400 text-sm mt-1 ${isRTL ? 'font-arabic' : ''}`}>{errors.message}</p>}
+                      </div>
+
+                      <div>
+                        <label className={`block text-sm font-medium text-gray-300 mb-2 ${isRTL ? 'font-arabic' : ''}`}>
+                          {t('form.services')} <span className="text-red-400">*</span>
+                        </label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                          {servicesData.map((service) => {
+                            const serviceId = service.id.toString()
+                            const isActive = formData.services.includes(serviceId)
+                            return (
+                              <button
+                                key={service.id}
+                                type="button"
+                                onClick={() => handleServiceToggle(service.id)}
+                                className={`text-left px-4 py-2 rounded-xl border transition-all ${isActive ? 'bg-cosmic-saturated/30 border-cosmic-sky text-white' : 'glass border-cosmic-saturated/20 text-gray-300 hover:text-white hover:border-cosmic-sky/50'} ${isRTL ? 'font-arabic text-right' : ''}`}
+                              >
+                                {service.title?.[currentLang] || t('unknownService', { id: service.id })}
+                              </button>
+                            )
+                          })}
+                        </div>
+                        {shouldShowError('services') && <p className={`error-message text-red-400 text-sm mt-2 ${isRTL ? 'font-arabic' : ''}`}>{errors.services}</p>}
                       </div>
 
                       <motion.button
                         type="submit"
-                        disabled={isSubmitting}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full relative px-8 py-4 rounded-xl font-semibold text-white
-                                 bg-gradient-to-r from-cosmic-saturated to-cosmic-dark
-                                 shadow-lg shadow-cosmic-saturated/30 hover:shadow-cosmic-saturated/50
-                                 transition-all duration-300 overflow-hidden group
-                                 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isSubmitting || !isFormValid()}
+                        whileHover={{ scale: isSubmitting || !isFormValid() ? 1 : 1.02 }}
+                        whileTap={{ scale: isSubmitting || !isFormValid() ? 1 : 0.98 }}
+                        className="w-full relative px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-cosmic-saturated to-cosmic-dark shadow-lg shadow-cosmic-saturated/30 transition-all duration-300 overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <span className="relative z-10 flex items-center justify-center gap-2">
+                        <span className={`relative z-10 flex items-center justify-center gap-2 ${isRTL ? 'font-arabic' : ''}`}>
                           {isSubmitting ? (
                             <>
                               <motion.div
@@ -428,7 +395,7 @@ const ContactForm = () => {
                                 transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                                 className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
                               />
-                              {t('form.sending')}
+                              {t('form.submitting')}
                             </>
                           ) : (
                             <>
@@ -437,15 +404,9 @@ const ContactForm = () => {
                             </>
                           )}
                         </span>
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                          initial={{ x: '-100%' }}
-                          whileHover={{ x: '100%' }}
-                          transition={{ duration: 0.8 }}
-                        />
                       </motion.button>
 
-                      <p className="text-xs text-gray-500 text-center">
+                      <p className={`text-xs text-gray-500 text-center ${isRTL ? 'font-arabic' : ''}`}>
                         {t('form.privacy')}{' '}
                         <a href="/privacy" className="text-cosmic-glow hover:underline">{t('form.privacyPolicy')}</a>
                         {' '}{t('form.and')}{' '}

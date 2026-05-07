@@ -72,6 +72,26 @@
     background: linear-gradient(to bottom, var(--color-cosmic-saturated), var(--color-cosmic-dark));
     border-radius: 9999px;
   }
+
+  html[lang="ar"],
+  html[lang="ar"] body {
+    direction: ltr;
+  }
+
+  html[lang="ar"] .rtl {
+    direction: ltr;
+  }
+
+  html[lang="ar"] .flex-row-reverse,
+  html[lang="ar"] .sm\:flex-row-reverse,
+  html[lang="ar"] .md\:flex-row-reverse,
+  html[lang="ar"] .lg\:flex-row-reverse {
+    flex-direction: row !important;
+  }
+
+  html[lang="ar"] .text-right {
+    text-align: left !important;
+  }
 }
 
 @layer utilities {

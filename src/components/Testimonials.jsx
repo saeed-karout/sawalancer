@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Star, Quote } from 'lucide-react'
 import SectionTitle from './ui/SectionTitle'
 
 const Testimonials = () => {
-  const testimonials = [
+  const { t } = useTranslation('home')
+  const testimonials = t('testimonials.items', { returnObjects: true }) || [
     {
       name: 'Sarah Johnson',
       role: 'CEO, Nebula Tech',
@@ -31,8 +33,8 @@ const Testimonials = () => {
     <section className="relative py-24">
       <div className="container mx-auto px-6 lg:px-12">
         <SectionTitle 
-          subtitle="Testimonials"
-          title="What Our Clients Say"
+          subtitle={t('testimonials.subtitle')}
+          title={t('testimonials.title')}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

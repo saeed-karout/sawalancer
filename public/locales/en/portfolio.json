@@ -4,40 +4,75 @@
     "title": "Cosmic Portfolio",
     "description": "Explore our stellar projects that have launched brands into new dimensions."
   },
+  "section": {
+    "subtitle": "Our Work",
+    "title": "Projects That Shine"
+  },
   "filters": {
-    "all": "All Projects",
+    "all": "All",
     "branding": "Branding",
-    "web": "Web Development",
+    "web": "Web",
     "marketing": "Marketing",
-    "content": "Content Creation"
+    "content": "Content"
   },
-  "search": {
-    "placeholder": "Search projects...",
-    "noResults": "No projects found"
-  },
-  "sort": {
-    "newest": "Newest",
-    "oldest": "Oldest"
-  },
-  "project": {
+  "projects": [
+    {
+      "id": 1,
+      "title": "Nebula Finance",
+      "category": "branding",
+      "description": "Complete brand identity for a next-gen fintech startup",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      "gradient": "from-purple-600 to-blue-600"
+    },
+    {
+      "id": 2,
+      "title": "Stellar E-Commerce",
+      "category": "web",
+      "description": "High-performance e-commerce platform with cosmic UX",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      "gradient": "from-blue-600 to-cyan-500"
+    },
+    {
+      "id": 3,
+      "title": "Galaxy Campaign",
+      "category": "marketing",
+      "description": "Viral marketing campaign reaching 10M+ impressions",
+      "image": "https://images.unsplash.com/photo-1557838923-2985c318be48?w=600&h=400&fit=crop",
+      "gradient": "from-indigo-600 to-purple-600"
+    },
+    {
+      "id": 4,
+      "title": "Cosmic Content Studio",
+      "category": "content",
+      "description": "Award-winning content strategy and production",
+      "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=600&h=400&fit=crop",
+      "gradient": "from-purple-500 to-pink-500"
+    },
+    {
+      "id": 5,
+      "title": "Orbit Analytics",
+      "category": "web",
+      "description": "Real-time analytics dashboard with stunning visuals",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      "gradient": "from-blue-500 to-indigo-600"
+    },
+    {
+      "id": 6,
+      "title": "Lunar Lifestyle",
+      "category": "branding",
+      "description": "Premium lifestyle brand identity and guidelines",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
+      "gradient": "from-purple-600 to-indigo-600"
+    }
+  ],
+  "buttons": {
     "viewProject": "View Project",
-    "client": "Client",
-    "category": "Category",
-    "year": "Year",
-    "challenge": "The Challenge",
-    "solution": "Our Solution",
-    "results": "Results",
-    "gallery": "Gallery",
-    "featured": "Featured"
+    "viewAll": "View All Projects"
   },
   "stats": {
     "projects": "Projects Completed",
     "clients": "Happy Clients",
     "awards": "Awards Won",
     "years": "Years Experience"
-  },
-  "cta": {
-    "title": "Ready to be our next success story?",
-    "button": "Start Your Project"
   }
 }

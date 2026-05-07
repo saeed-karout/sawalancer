@@ -532,3 +532,5 @@ export const Share2 = ({ className = "w-5 h-5" }) => (
     <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
   </svg>
 )
+
+

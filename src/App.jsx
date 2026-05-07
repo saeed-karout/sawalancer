@@ -11,8 +11,13 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Pricing from './pages/Pricing'
+import Careers from './pages/Careers'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Cookies from './pages/Cookies'
 import NotFound from './pages/NotFound'
 
 // SEO
@@ -63,6 +68,7 @@ function App() {
               <Blog />
             </Layout>
           } />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contact" element={
             <Layout seoProps={pageSEO.contact}>
               <Contact />
@@ -73,6 +79,10 @@ function App() {
               <Pricing />
             </Layout>
           } />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route path="/branding" element={
             <Layout seoProps={{ title: 'Brand Identity Services' }}>
               <Services serviceType="branding" />
@@ -97,8 +107,11 @@ function App() {
           {/* 404 Catch all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        <Footer />
       </AnimatePresence>
-      <Footer />
+
+      
     </>
   )
 }

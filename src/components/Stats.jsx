@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Trophy, Users, Target, Award } from 'lucide-react'
 
 const Stats = () => {
+  const { t } = useTranslation('home')
   const [ref, inView] = useInView({ triggerOnce: true })
   const [counts, setCounts] = useState({ projects: 0, clients: 0, satisfaction: 0, awards: 0 })
 
@@ -33,10 +35,10 @@ const Stats = () => {
   }, [inView])
 
   const statItems = [
-    { icon: Trophy, value: counts.projects, suffix: '+', label: 'Projects Completed', color: 'from-cosmic-glow to-cosmic-medium' },
-    { icon: Users, value: counts.clients, suffix: '+', label: 'Happy Clients', color: 'from-cosmic-sky to-cosmic-mid' },
-    { icon: Target, value: counts.satisfaction, suffix: '%', label: 'Satisfaction Rate', color: 'from-cosmic-saturated to-cosmic-dark' },
-    { icon: Award, value: counts.awards, suffix: '+', label: 'Industry Awards', color: 'from-cosmic-medium to-cosmic-navy' },
+    { icon: Trophy, value: counts.projects, suffix: '+', label: t('stats.projects'), color: 'from-cosmic-glow to-cosmic-medium' },
+    { icon: Users, value: counts.clients, suffix: '+', label: t('stats.clients'), color: 'from-cosmic-sky to-cosmic-mid' },
+    { icon: Target, value: counts.satisfaction, suffix: '%', label: t('stats.satisfaction'), color: 'from-cosmic-saturated to-cosmic-dark' },
+    { icon: Award, value: counts.awards, suffix: '+', label: t('stats.awards'), color: 'from-cosmic-medium to-cosmic-navy' },
   ]
 
   return (

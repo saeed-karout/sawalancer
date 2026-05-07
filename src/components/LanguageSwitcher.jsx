@@ -7,12 +7,10 @@ const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation('common')
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
-  const isRTL = i18n.language === 'ar'
-  
   const currentLanguage = i18n.language
   const languages = [
-    { code: 'en', name: t('language.en'), dir: 'ltr', flag: '🇺🇸' },
-    { code: 'ar', name: t('language.ar'), dir: 'rtl', flag: '🇸🇦' }
+    { code: 'en', name: t('language.en'), flag: '🇺🇸' },
+    { code: 'ar', name: t('language.ar'), flag: '🇸🇦' }
   ]
   
   // إغلاق القائمة عند النقر خارجها
@@ -29,9 +27,8 @@ const LanguageSwitcher = () => {
   const switchLanguage = (lng) => {
     i18n.changeLanguage(lng)
     setIsOpen(false)
-    // تحديث اتجاه الصفحة
-    document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'
     document.documentElement.lang = lng
+    document.documentElement.dir = 'ltr'
   }
   
   return (
@@ -57,7 +54,7 @@ const LanguageSwitcher = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} mt-2 glass rounded-xl p-2 z-50 min-w-[140px]`}
+            className="absolute top-full right-0 mt-2 glass rounded-xl p-2 z-50 min-w-[140px]"
           >
             {languages.map((lang) => (
               <button
@@ -67,10 +64,10 @@ const LanguageSwitcher = () => {
                   currentLanguage === lang.code
                     ? 'bg-cosmic-saturated/30 text-cosmic-glow'
                     : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                } ${lang.dir === 'ltr' ? 'flex-row-reverse text-right' : 'text-left'}`}
+                } flex-row-reverse text-right`}
               >
                 <span className="text-lg">{lang.flag}</span>
-                <span className={`flex-1 ${lang.dir === 'ltr' ? 'font-arabic' : ''}`}>
+                <span className="flex-1">
                   {lang.name}
                 </span>
                 {currentLanguage === lang.code && (
@@ -85,7 +82,7 @@ const LanguageSwitcher = () => {
             {/* معلومات إضافية */}
             <div className="mt-2 pt-2 border-t border-cosmic-saturated/20">
               <p className="text-[10px] text-gray-500 text-center">
-                {isRTL ? 'اختر لغتك المفضلة' : 'Choose your preferred language'}
+                {t('language.preferred')}
               </p>
             </div>
           </motion.div>
