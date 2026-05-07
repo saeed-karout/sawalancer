@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "badge": "Our Services",
+    "title": "Cosmic",
+    "title2": "Solutions",
+    "description": "Comprehensive creative solutions to launch your brand into new dimensions."
+  },
+  "allServices": {
+    "title": "All Services",
+    "description": "Everything you need for a stellar digital presence."
+  },
+  "process": {
+    "subtitle": "Our Process",
+    "title": "How We Work",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Discovery",
+        "description": "We dive deep into your brand, audience, and goals to understand your cosmic vision."
+      },
+      {
+        "step": "02",
+        "title": "Strategy",
+        "description": "We craft a tailored strategy that aligns with your objectives and market opportunities."
+      },
+      {
+        "step": "03",
+        "title": "Creation",
+        "description": "Our creative team brings your vision to life with stellar design and development."
+      },
+      {
+        "step": "04",
+        "title": "Launch",
+        "description": "We launch your project into the digital universe with precision and impact."
+      },
+      {
+        "step": "05",
+        "title": "Growth",
+        "description": "Continuous optimization and support to ensure lasting success."
+      }
+    ]
+  },
+  "pricing": {
+    "subtitle": "Pricing",
+    "title": "Transparent Plans",
+    "description": "Choose the perfect package for your cosmic journey.",
+    "custom": "Need a custom package? Contact us for a tailored solution."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary depending on scope and complexity. A typical branding project takes 4-6 weeks, while a full website development may take 8-12 weeks."
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Absolutely! We work with clients from all over the galaxy. Our team is equipped to handle different time zones and communication preferences."
+      },
+      {
+        "question": "What is your payment structure?",
+        "answer": "We typically require a 50% deposit to begin work, with the remaining balance due upon project completion. For larger projects, we offer milestone-based payments."
+      },
+      {
+        "question": "Do you offer ongoing support?",
+        "answer": "Yes! We offer various maintenance and support packages to ensure your digital presence continues to shine."
+      }
+    ]
+  }
+}

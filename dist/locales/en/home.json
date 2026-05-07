@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "badge": "Beyond the ordinary",
+    "title1": "Cosmic Creativity",
+    "title2": "Meets Digital",
+    "title3": "Excellence",
+    "description": "Transform your brand with Sawalancer. We blend stellar design, strategic thinking, and cutting-edge technology to launch your business into new dimensions.",
+    "cta1": "Start Your Journey",
+    "cta2": "View Our Work",
+    "stats": {
+      "projects": "Projects Launched",
+      "satisfaction": "Client Satisfaction",
+      "awards": "Global Awards"
+    }
+  },
+  "services": {
+    "subtitle": "Our Expertise",
+    "title": "Services That Elevate Your Brand",
+    "branding": {
+      "title": "Brand Identity",
+      "description": "Crafting unique brand identities that resonate with your audience and stand out in the cosmos."
+    },
+    "web": {
+      "title": "Web Development",
+      "description": "Building responsive, high-performance websites and applications with cutting-edge technology."
+    },
+    "marketing": {
+      "title": "Digital Marketing",
+      "description": "Strategic marketing campaigns that amplify your reach and drive meaningful engagement."
+    },
+    "seo": {
+      "title": "SEO Optimization",
+      "description": "Data-driven SEO strategies to boost your visibility and dominate search rankings."
+    },
+    "content": {
+      "title": "Content Creation",
+      "description": "Compelling visual content that tells your story and captivates your target audience."
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "description": "Deep analytics and actionable insights to optimize your digital presence."
+    },
+    "customCta": "Need a custom solution?",
+    "letsTalk": "Let's talk"
+  },
+  "portfolio": {
+    "subtitle": "Our Work",
+    "title": "Projects That Shine",
+    "description": "Explore our stellar projects that have launched brands into new dimensions.",
+    "filters": {
+      "all": "All Projects",
+      "branding": "Branding",
+      "web": "Web Development",
+      "marketing": "Marketing",
+      "content": "Content Creation"
+    },
+    "viewProject": "View Project"
+  },
+  "stats": {
+    "subtitle": "Our Impact",
+    "title": "Numbers That Speak",
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "satisfaction": "Satisfaction Rate",
+    "awards": "Industry Awards"
+  },
+  "testimonials": {
+    "subtitle": "Testimonials",
+    "title": "What Our Clients Say",
+    "clients": "Trusted by innovative companies worldwide",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "role": "CEO, Nebula Tech",
+        "content": "Sawalancer transformed our brand identity completely. Their cosmic approach to design is truly out of this world. The team's creativity and professionalism exceeded all expectations.",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1494790108755-2616f7010333?w=100&h=100&fit=crop"
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Founder, Stellar Apps",
+        "content": "Working with Sawalancer was like launching a rocket to success. Their strategic insights and execution helped us reach new heights in our industry. Highly recommended!",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Marketing Director, Cosmos",
+        "content": "The team at Sawalancer doesn't just deliver projects; they deliver experiences. Their attention to detail and innovative solutions set them apart from any agency we've worked with.",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+      }
+    ]
+  },
+  "cta": {
+    "title1": "Ready to Launch",
+    "title2": "Your Brand Into",
+    "title3": "The Cosmos?",
+    "description": "Let's create something extraordinary together. Your cosmic journey begins with a single step.",
+    "button1": "Start Your Project",
+    "button2": "Schedule a Call",
+    "footnote": "No obligation • Free consultation • 24/7 support"
+  }
+}

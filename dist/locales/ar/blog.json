@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "badge": "رؤى كونية",
+    "title": "مدونتنا",
+    "title2": "",
+    "description": "رؤى واتجاهات وحكمة كونية من فريق سوالانسر."
+  },
+  "categories": {
+    "all": "جميع المقالات",
+    "marketing": "التسويق",
+    "design": "التصميم",
+    "development": "التطوير",
+    "strategy": "الاستراتيجية",
+    "news": "الأخبار"
+  },
+  "post": {
+    "readMore": "اقرأ المزيد",
+    "by": "بقلم",
+    "on": "في",
+    "minRead": "دقيقة قراءة",
+    "share": "شارك",
+    "related": "مقالات ذات صلة",
+    "comments": "التعليقات",
+    "leaveComment": "اترك تعليقاً"
+  },
+  "sidebar": {
+    "search": "بحث",
+    "categories": "الفئات",
+    "recentPosts": "أحدث المقالات",
+    "newsletter": "النشرة البريدية",
+    "newsletterDesc": "احصل على رؤى كونية في بريدك الإلكتروني.",
+    "subscribe": "اشترك"
+  }
+}

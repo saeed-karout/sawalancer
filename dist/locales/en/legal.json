@@ -1,0 +1,103 @@
+{
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "We respect your privacy and are committed to protecting your personal information.",
+    "label": "Privacy",
+    "intro": {
+      "title": "Introduction",
+      "content": "At Sawalancer, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services."
+    },
+    "collection": {
+      "title": "Information We Collect",
+      "content": "We may collect information about you in a variety of ways. The information we may collect on the site includes:",
+      "items": [
+        "Personal Data: Name, email address, phone number, and company information you voluntarily provide",
+        "Automatic Data: Browser information, IP address, pages visited, and time spent on our site",
+        "Cookies: Small files stored on your device to enhance your browsing experience"
+      ]
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "content": "Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the site to: respond to your inquiries and support requests; send you marketing and promotional communications; improve our website and services; and comply with legal obligations."
+    },
+    "protection": {
+      "title": "Protection of Your Information",
+      "content": "We use administrative, technical, and physical security measures to protect your personal information. However, no method of transmission over the Internet or method of electronic storage is completely secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security."
+    },
+    "rights": {
+      "title": "Your Privacy Rights",
+      "content": "You have the right to know what personal data we hold about you and how we use it. You may also request to access, correct, or delete your personal data. To exercise these rights, please contact us using the information provided in our contact section."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us at info@sawalancer.com or through our contact form."
+    },
+    "lastUpdated": "Last Updated"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "Please read these terms and conditions carefully before using our website.",
+    "label": "Terms",
+    "intro": {
+      "title": "Introduction",
+      "content": "These Terms of Service ('Terms') constitute a legally binding agreement between you ('User') and Sawalancer ('Company'). By accessing or using our website and services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use our services."
+    },
+    "license": {
+      "title": "License and Use",
+      "content": "We grant you a limited, non-exclusive, non-transferable license to access and use our website for lawful purposes only. You agree not to use the website for any illegal or unauthorized purpose. You must not, in the use of the website, violate any laws in your jurisdiction."
+    },
+    "disclaimer": {
+      "title": "Disclaimer of Warranties",
+      "content": "Our website and services are provided on an 'as is' and 'as available' basis. We make no warranties, expressed or implied, regarding the website or services. We disclaim all warranties including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement."
+    },
+    "limitations": {
+      "title": "Limitation of Liability",
+      "content": "In no event shall Sawalancer be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services, even if we have been advised of the possibility of such damages."
+    },
+    "accuracy": {
+      "title": "Accuracy of Information",
+      "content": "While we strive to provide accurate and up-to-date information on our website, we make no representations or warranties of any kind, express or implied, about the accuracy or completeness of any information contained on the website."
+    },
+    "modifications": {
+      "title": "Modifications to Terms",
+      "content": "We reserve the right to modify these Terms at any time. If we make material changes to these Terms, we will notify you by updating the 'Last Updated' date of these Terms. Your continued use of the website constitutes your acceptance of any modified Terms."
+    },
+    "governing": {
+      "title": "Governing Law",
+      "content": "These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Sawalancer is located, and you irrevocably submit to the exclusive jurisdiction of the courts located in that jurisdiction."
+    },
+    "lastUpdated": "Last Updated"
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "description": "Learn about how we use cookies and similar technologies on our website.",
+    "label": "Cookies",
+    "intro": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains what cookies are and how we use them on our website. Cookies are small text files that are placed on your device when you visit our website. They help us remember your preferences and understand how you interact with our site."
+    },
+    "types": {
+      "title": "Types of Cookies We Use",
+      "content": "We use different types of cookies to enhance your browsing experience:",
+      "items": [
+        "Essential Cookies: Required for the website to function properly",
+        "Performance Cookies: Help us understand how you use our website",
+        "Functionality Cookies: Remember your preferences and settings",
+        "Marketing Cookies: Used to track your activity and improve our marketing efforts"
+      ]
+    },
+    "control": {
+      "title": "Your Cookie Choices",
+      "content": "Most web browsers allow you to control cookies through their settings. You can set your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of our website may not function properly if you disable cookies."
+    },
+    "thirdParty": {
+      "title": "Third-Party Cookies",
+      "content": "We may allow third-party service providers to place cookies on your device for analytics, advertising, and other purposes. These providers are contractually obligated to use the information only for the purposes specified and to maintain the confidentiality of the information."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We encourage you to review this policy periodically to stay informed about how we use cookies."
+    },
+    "lastUpdated": "Last Updated"
+  }
+}
