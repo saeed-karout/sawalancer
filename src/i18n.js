@@ -18,7 +18,7 @@ i18n
     
     backend: {
       // تصحيح: تحديد مسار ملفات الترجمة بشكل صحيح
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: '/sawalancer/locales/{{lng}}/{{ns}}.json',
     },
     
     // مهم: تحديد namespace الافتراضي

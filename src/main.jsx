@@ -17,8 +17,8 @@ const Loading = () => (
   </div>
 )
 
-
-const basename = '/'
+// تحديد المسار الأساسي بناءً على البيئة
+const basename = import.meta.env.PROD ? '/sawalancer/' : '/'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
