@@ -23,15 +23,19 @@
     "namePlaceholder": "أحمد محمد",
     "email": "البريد الإلكتروني",
     "emailPlaceholder": "ahmed@example.com",
+    "company": "اسم الشركة",
+    "companyPlaceholder": "أدخل اسم الشركة",
     "phone": "رقم الهاتف",
     "phonePlaceholder": "+966 5X XXX XXXX",
     "service": "الخدمة المطلوبة",
+    "services": "الخدمات",
     "servicePlaceholder": "اختر الخدمة",
     "budget": "الميزانية التقريبية",
     "budgetPlaceholder": "اختر نطاق الميزانية",
     "message": "رسالتك",
     "messagePlaceholder": "أخبرنا عن مشروعك وأهدافك وجدولك الزمني...",
     "submit": "إرسال الرسالة",
+    "submitting": "جاري الإرسال...",
     "sending": "جاري الإرسال...",
     "success": {
       "title": "تم إرسال الرسالة بنجاح!",
@@ -62,10 +66,16 @@
     "nameMin": "يجب أن يكون الاسم حرفين على الأقل",
     "emailRequired": "البريد الإلكتروني مطلوب",
     "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+    "companyRequired": "اسم الشركة مطلوب",
+    "companyMinLength": "يجب أن يتكون اسم الشركة من حرفين على الأقل",
+    "companyMaxLength": "يجب أن يكون اسم الشركة أقل من 100 حرف",
     "messageRequired": "الرسالة مطلوبة",
     "messageMin": "يجب أن تكون الرسالة 10 أحرف على الأقل",
-    "serviceRequired": "يرجى اختيار الخدمة"
+    "messageMaxLength": "يجب أن تكون الرسالة أقل من 1000 حرف",
+    "serviceRequired": "يرجى اختيار الخدمة",
+    "servicesRequired": "يرجى اختيار خدمة واحدة على الأقل"
   },
+  "unknownService": "خدمة غير معروفة ({{id}})",
   "map": {
     "title": "زر مقرنا الكوني",
     "address": "المجرة الرقمية، الأرض"
