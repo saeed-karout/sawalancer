@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "name": "sawalancer",
-  "homepage": "https://sawalancer.com",
+  "homepage":"https://saeed-karout.github.io/sawalancer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist -b gh-pages",
-    "deploy:custom": "npm run build && gh-pages -d dist -b gh-pages -r https://github.com/username/sawalancer.git"
+    "deploy:custom": "npm run build && gh-pages -d dist -b gh-pages -r https://github.com/saeed-karout/sawalancer.git"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
