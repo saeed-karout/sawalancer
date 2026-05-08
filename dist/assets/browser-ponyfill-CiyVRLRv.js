@@ -1,0 +1,1 @@
+import{t as o}from"./vendor-OfpLGq_U.js";export default o();
